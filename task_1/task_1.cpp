@@ -10,32 +10,27 @@ using std::endl;
 
 int main()
 {
-	int i{ 1 }, j{ 1 };
+	setlocale(LC_ALL, ""); // работает только с потоком вывода
 
-	while (i <= 21)
+	int i{ 0 }, j{ 0 }, side{ 0 };
+
+	cout << "Введите сторону квадрата: " << endl;
+	cin >> side;
+
+	while (i < side) 
 	{
-		cout << '*';
-		i++;
-		if (i == 22)
+		j = 0;
+		while (j < side) 
 		{
-			cout << "\n";
+			if (i == 0 || i == side - 1 || j == 0 || j == side - 1 || j == side / 2 || i == side / 2)
+				cout << "* ";
+			else
+				cout << "  ";
 			j++;
-			i = 1;
-			while (i <= 21 )
-			{
-				if (i == 1 || i == 11 || i == 21)
-				{
-					cout << "*";
-				}
-				else
-				{
-					cout << ' ';
-				}
-				i++;
-			}
 		}
-
-
+		cout << "\n";
+		i++;
 	}
 
+	return 0;
 }
